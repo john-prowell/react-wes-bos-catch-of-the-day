@@ -18,39 +18,36 @@ class EditFishForm extends Component {
     this.props.updateFish(this.props.index, updatedFish);
   };
   render() {
+    const { name, price, status, desc, image } = this.props.fish;
     return (
       <div className="fish-edit">
         <input
           type="text"
           name="name"
           onChange={this.handleChange}
-          value={this.props.fish.name}
+          value={name}
         />
         <input
           type="text"
           name="price"
           onChange={this.handleChange}
-          value={this.props.fish.price}
+          value={price}
         />
         <select
           type="text"
           name="status"
           onChange={this.handleChange}
-          value={this.props.fish.status}
+          value={status}
         >
           <option value="available">Fresh</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-        <textarea
-          name="desc"
-          onChange={this.handleChange}
-          value={this.props.fish.desc}
-        />
+        <textarea name="desc" onChange={this.handleChange} value={desc} />
         <input
           type="text"
           name="image"
           onChange={this.handleChange}
-          value={this.props.fish.image}
+          value={image}
         />
         <button onClick={() => this.props.deleteFish(this.props.index)}>
           Remove Fish
