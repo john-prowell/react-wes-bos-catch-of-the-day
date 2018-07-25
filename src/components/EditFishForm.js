@@ -17,6 +17,12 @@ class EditFishForm extends Component {
     // calls updateFish passing in the index and updatedFish object
     this.props.updateFish(this.props.index, updatedFish);
   };
+
+  handleDelete = () => {
+    const { deleteFish, index } = this.props;
+    deleteFish(index);
+  };
+
   render() {
     const { name, price, status, desc, image } = this.props.fish;
     return (
@@ -49,9 +55,8 @@ class EditFishForm extends Component {
           onChange={this.handleChange}
           value={image}
         />
-        <button onClick={() => this.props.deleteFish(this.props.index)}>
-          Remove Fish
-        </button>
+        {/* <button onClick={() => this.props.deleteFish(this.props.index)}> */}
+        <button onClick={this.handleDelete}>Remove Fish</button>
       </div>
     );
   }
